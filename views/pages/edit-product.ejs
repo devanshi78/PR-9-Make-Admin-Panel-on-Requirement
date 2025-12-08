@@ -1,0 +1,180 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="page-wrapper">
+
+    <!-- Breadcrumb -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Edit Product</h4>
+                <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Edit Product
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="card">
+                    <form class="form-horizontal" 
+                          method="post" 
+                          enctype="multipart/form-data"
+                          action="/product/edit/<%= data.id %>">
+
+                        <div class="card-body">
+
+                            <h4 class="card-title">Edit Product</h4>
+
+                            <!-- Upload New Image -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-end control-label col-form-label">
+                                    Change Image
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="file" class="form-control" name="image" />
+                                </div>
+                            </div>
+
+                            <!-- Current Image Preview -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-end control-label col-form-label">
+                                    Current Image
+                                </label>
+                                <div class="col-sm-9">
+                                    <img src="/<%= data.image %>"
+                                         style="width:100px;height:100px;object-fit:cover;border-radius:6px" />
+                                </div>
+                            </div>
+
+                            <!-- Product Name -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-end control-label col-form-label">
+                                    Product Name
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text"
+                                           class="form-control"
+                                           name="name"
+                                           value="<%= data.name %>"
+                                           placeholder="Product Name" />
+                                </div>
+                            </div>
+
+                            <!-- Price -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-end control-label col-form-label">
+                                    Price
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="number"
+                                           class="form-control"
+                                           name="price"
+                                           value="<%= data.price %>"
+                                           placeholder="Enter Price" />
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-end control-label col-form-label">
+                                    Description
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text"
+                                           class="form-control"
+                                           name="description"
+                                           value="<%= data.description %>"
+                                           placeholder="Enter Description" />
+                                </div>
+                            </div>
+
+                            <!-- Category -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-end control-label col-form-label">
+                                    Category
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="category" class="form-select">
+                                        <option disabled>--- Select Category ---</option>
+
+                                        <% categories.forEach(category => { %>
+                                            <option value="<%= category.id %>"
+                                                <%= category.id.toString() === data.category.toString() ? "selected" : "" %>>
+                                                <%= category.name %>
+                                            </option>
+                                        <% }) %>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Subcategory -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-end control-label col-form-label">
+                                    Subcategory
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="subcategory" class="form-select">
+                                        <option disabled>--- Select Subcategory ---</option>
+
+                                        <% subcategories.forEach(subcategory => { %>
+                                            <option value="<%= subcategory.id %>"
+                                                <%= subcategory.id.toString() === data.subcategory.toString() ? "selected" : "" %>>
+                                                <%= subcategory.name %>
+                                            </option>
+                                        <% }) %>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Extra Category -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-end control-label col-form-label">
+                                    Extra Category
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="extracategory" class="form-select">
+                                        <option disabled>--- Select Extracategory ---</option>
+
+                                        <% extracategories.forEach(extracategory => { %>
+                                            <option value="<%= extracategory.id %>"
+                                                <%= extracategory.id.toString() === data.extracategory.toString() ? "selected" : "" %>>
+                                                <%= extracategory.name %>
+                                            </option>
+                                        <% }) %>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+<%- include('../partials/footer.ejs') %>

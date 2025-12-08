@@ -1,0 +1,109 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="page-wrapper">
+
+    <!-- Breadcrumb -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Edit SubCategory</h4>
+                <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit SubCategory</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Edit SubCategory</h4>
+
+                            <!-- Upload Image -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-end control-label col-form-label">Image</label>
+                                <div class="col-sm-9">
+                                    <input type="file" class="form-control" name="image" id="image">
+                                </div>
+                            </div>
+
+                            <!-- Show Old Image -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-end control-label col-form-label">Old Image</label>
+                                <div class="col-sm-9">
+                                    <img src="/<%= data.image %>" 
+                                         style="width: 100px; height: 100px; object-fit: cover;"
+                                         alt="<%= data.name %>">
+                                </div>
+                            </div>
+
+                            <!-- Subcategory Name (DROPDOWN) -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-end control-label col-form-label">
+                                    SubCategory
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="subcategory" id="subcategory" class="form-select">
+                                        <option disabled>--- Select SubCategory ---</option>
+
+                                        <% subcategories.forEach(sub => { %>
+                                            <option value="<%= sub.id %>"
+                                                <%= sub.id.toString() === data.id.toString() ? "selected" : "" %>>
+                                                <%= sub.name %>
+                                            </option>
+                                        <% }) %>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Category Dropdown -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-end control-label col-form-label">Category</label>
+                                <div class="col-sm-9">
+                                    <select name="category" id="category" class="form-select">
+                                        <option disabled>--- Select Category ---</option>
+
+                                        <% categories.forEach(category => { %>
+                                            <option value="<%= category.id %>"
+                                                <%= category.id.toString() === data.category.toString() ? "selected" : "" %>>
+                                                <%= category.name %>
+                                            </option>
+                                        <% }) %>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<%- include('../partials/footer.ejs') %>

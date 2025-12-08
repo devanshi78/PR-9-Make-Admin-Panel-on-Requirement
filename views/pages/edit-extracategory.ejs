@@ -1,0 +1,111 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="page-wrapper">
+
+    <!-- Breadcrumb -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Edit Extra Category</h4>
+                <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit Extra Category</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+
+                    <form action="/admin/extracategory/update/<%= data.id %>" 
+                          method="POST" 
+                          enctype="multipart/form-data">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Edit Extra Category</h4>
+
+                            <div class="row">
+
+                                <!-- Category Dropdown -->
+                                <div class="col-md-6 mb-3">
+                                    <label>Category</label>
+                                    <select class="form-select" name="category" required>
+                                        <option disabled>--- Select Category ---</option>
+                                        <% categories.forEach(category => { %>
+                                            <option value="<%= category.id %>" 
+                                                <%= category.id.toString() === data.category.toString() ? "selected" : "" %>>
+                                                <%= category.name %>
+                                            </option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+
+                                <!-- SubCategory Dropdown -->
+                                <div class="col-md-6 mb-3">
+                                    <label>SubCategory</label>
+                                    <select class="form-select" name="subcategory" required>
+                                        <option disabled>--- Select SubCategory ---</option>
+                                        <% subcategories.forEach(sub => { %>
+                                            <option value="<%= sub.id %>" 
+                                                <%= sub.id.toString() === data.subcategory.toString() ? "selected" : "" %>>
+                                                <%= sub.name %>
+                                            </option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+
+                                <!-- ExtraCategory Dropdown -->
+                                <div class="col-md-6 mb-3">
+                                    <label> ExtraCategory</label>
+                                    <select class="form-select" name="ExtraCategory">
+                                        <option value="">--- Select  ExtraCategory ---</option>
+                                        <% extracategories.forEach(extracategory => { %>
+                                            <option value="<%= extracategory.id %>" 
+                                                <%= data.ExtraCategory && extracategory.id.toString() === data.ExtraCategory.toString() ? "selected" : "" %>>
+                                                <%= extracategory.name %>
+                                            </option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+
+                                <!-- Image Upload -->
+                                <div class="col-md-6 mb-3">
+                                    <label>Image</label>
+                                    <input type="file" class="form-control" name="image">
+                                    <% if (data.image) { %>
+                                        <img src="/<%= data.image %>" 
+                                             style="width:100px;height:100px;border-radius:8px;margin-top:10px;object-fit:cover;">
+                                    <% } %>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<%- include('../partials/footer.ejs') %>

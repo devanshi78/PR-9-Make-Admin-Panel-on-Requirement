@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+
+    <title>Signup | Matrix Admin</title>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png" />
+    <link href="../dist/css/style.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="main-wrapper">
+
+      <div class="preloader">
+        <div class="lds-ripple">
+          <div class="lds-pos"></div>
+          <div class="lds-pos"></div>
+        </div>
+      </div>
+
+      <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
+
+        <div class="auth-box bg-dark border-top border-secondary">
+
+          <div class="text-center pt-3 pb-3">
+            <span class="db"><img src="../assets/images/logo.png" alt="logo" /></span>
+          </div>
+
+          <!-- SIGNUP FORM -->
+          <form class="form-horizontal mt-3" action="/signup" method="POST" enctype="multipart/form-data">
+
+            <div class="row pb-4">
+              <div class="col-12">
+
+                <!-- USERNAME -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-success text-white h-100">
+                      <i class="mdi mdi-account fs-4"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control form-control-lg" placeholder="Username" name="username" required />
+                </div>
+
+                <!-- FULL NAME -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary text-white h-100">
+                      <i class="mdi mdi-account-box fs-4"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control form-control-lg" placeholder="Full Name" name="fullname" required />
+                </div>
+
+                <!-- EMAIL -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-danger text-white h-100">
+                      <i class="mdi mdi-email fs-4"></i>
+                    </span>
+                  </div>
+                  <input type="email" class="form-control form-control-lg" placeholder="Email Address" name="email" required />
+                </div>
+
+                <!-- MOBILE -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-purple text-white h-100">
+                      <i class="mdi mdi-phone fs-4"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control form-control-lg" placeholder="Mobile Number" name="mobileNo" required />
+                </div>
+
+                <!-- ADDRESS -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-secondary text-white h-100">
+                      <i class="mdi mdi-map-marker fs-4"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control form-control-lg" placeholder="Address" name="address" required />
+                </div>
+
+                <!-- DOB -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-info text-white h-100">
+                      <i class="mdi mdi-calendar fs-4"></i>
+                    </span>
+                  </div>
+                  <input type="date" class="form-control form-control-lg" name="DOB" required />
+                </div>
+
+                <!-- BIO -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-success text-white h-100">
+                      <i class="mdi mdi-comment-text fs-4"></i>
+                    </span>
+                  </div>
+                  <textarea class="form-control form-control-lg" placeholder="Short Bio" name="bio" rows="3" required></textarea>
+                </div>
+
+                <!-- PROFILE IMAGE -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-warning text-white h-100">
+                      <i class="mdi mdi-image fs-4"></i>
+                    </span>
+                  </div>
+                  <input type="file" class="form-control form-control-lg" name="image" accept="image/*" required />
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-warning text-white h-100">
+                      <i class="mdi mdi-lock fs-4"></i>
+                    </span>
+                  </div>
+                  <input type="password" class="form-control form-control-lg" placeholder="Password" name="password" required />
+                </div>
+
+                <!-- CONFIRM PASSWORD -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-info text-white h-100">
+                      <i class="mdi mdi-lock fs-4"></i>
+                    </span>
+                  </div>
+                  <input type="password" class="form-control form-control-lg" placeholder="Confirm Password" name="confirmpassword" required />
+                </div>
+
+              </div>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="row border-top border-secondary">
+              <div class="col-12">
+                <div class="form-group">
+                  <div class="pt-3 d-grid">
+                    <button class="btn btn-lg btn-info mb-1" type="submit">Sign Up</button>
+                    <a href="/login" class="btn text-white btn-lg btn-success">Login</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      $(".preloader").fadeOut();
+    </script>
+  </body>
+</html>
