@@ -92,8 +92,8 @@ A complete **Admin Panel** backend for an e-commerce system built using **Node.j
 
 ### **1. Clone the Repository**
 ```bash
- git clone <https://github.com/devanshi78/PR-9-Make-Admin-Panel-on-Requirement>
- cd <PR-9-Make-Admin-Panel-on-Requiremen>
+ git clone https://github.com/devanshi78/PR-9-Make-Admin-Panel-on-Requirement
+ cd PR-9-Make-Admin-Panel-on-Requiremen
 ```
 
 ### **2. Install Dependencies**
