@@ -59,7 +59,9 @@
                         <td><%= category.name %></td>
                         <td>
                           <a href="category/edit/<%= category.id %>" class="btn btn-warning">Edit</a>
-                          <a href="category/delete/<%= category.id %>" class="btn btn-danger">Delete</a>
+                          <% if (!category.hasSubcategories) { %>
+                            <a href="category/delete/<%= category.id %>" class="btn btn-danger">Delete</a>
+                          <% } %>
                         </td>
                       </tr>
                     <% }) %>
